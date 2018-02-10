@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// list of angular modules: https://www.npmjs.com/~angular
+
 @NgModule({
   declarations: [
     AppComponent
