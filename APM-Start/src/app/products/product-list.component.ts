@@ -5,8 +5,12 @@ import { Component } from "@angular/core";
     templateUrl: './product-list.component.html'
 })
 export class ProductListComponent {
-    pageTitle: string = 'Product List!';
     // https://www.typescriptlang.org/docs/handbook/basic-types.htmls
+    pageTitle: string = 'Product List!';
+    imageWidth: number = 50;
+    imageMargin: number = 2;
+    showImage: boolean = false;
+    listFilter: string = 'cart';
     products: any[] = [
         {
             "productId": 2,
@@ -29,4 +33,8 @@ export class ProductListComponent {
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
     ];
+
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
 }
