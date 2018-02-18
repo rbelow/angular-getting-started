@@ -1,12 +1,14 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./product";
+
+// technology is a medium, not the end
 
 @Component({
     selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
     // https://www.typescriptlang.org/docs/handbook/basic-types.htmls
     pageTitle: string = 'Product List!';
     imageWidth: number = 50;
@@ -35,8 +37,12 @@ export class ProductListComponent {
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
     ];
-
+    
     toggleImage(): void {
         this.showImage = !this.showImage;
+    }
+
+    ngOnInit(): void {
+        console.log('OnInit');
     }
 }
