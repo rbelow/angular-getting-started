@@ -45,7 +45,7 @@
                                 [style.width.px]="imageWidth">
                         </td>
                         <td>{{ product.productName }}</td>
-                        <td>{{ product.productCode | lowercase }}</td>
+                        <td>{{ product.productCode | lowercase | convertToSpaces: "-" }}</td>
                         <td>{{ product.releaseDate }}</td>
                         <!-- are currency filters safe? -->
                         <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
