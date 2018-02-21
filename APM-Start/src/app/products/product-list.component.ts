@@ -14,7 +14,18 @@ export class ProductListComponent implements OnInit {
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
-    listFilter: string = 'cart';
+
+    _listFilter: string;
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string) {
+        this._listFilter = value;
+        // if there is no filter we display all products
+        this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+    }
+
+    filteredProducts: IProduct[];
     products: IProduct[] = [
         {
             "productId": 2,
@@ -37,7 +48,22 @@ export class ProductListComponent implements OnInit {
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
     ];
-    
+
+    // the best place to set default values for more complex properties
+    // is in the `class` `constructor`. it's executed when the component first initializes
+    constructor() {
+        this.filteredProducts = this.products;
+        this.listFilter = 'cart';
+    }
+
+    performFilter(filterBy: string): IProduct[] {
+        // case insensitive comparisson
+        filterBy = filterBy.toLocaleLowerCase();
+        // https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        return this.products.filter((product: IProduct) => 
+            product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
