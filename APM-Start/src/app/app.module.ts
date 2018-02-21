@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+import { StarComponent } from './shared/star.component';
 
 // list of angular modules: https://www.npmjs.com/~angular
 
@@ -13,7 +14,8 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
   declarations: [
     AppComponent,
     ProductListComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    StarComponent
   ],
   // angular and third party modules
   imports: [
