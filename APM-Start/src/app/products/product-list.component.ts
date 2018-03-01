@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
+    errorMessage: string;
 
     _listFilter: string;
     get listFilter(): string {
@@ -51,8 +52,13 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.products = this._productService.getProducts();
-        // set `filteredProducts` here instead of in the `constructor`
-        this.filteredProducts = this.products;
+        // fix for `includes`
+        this._productService.getProducts()
+            .subscribe(products => {
+                this.products = products
+                // set `filteredProducts` here instead of in the `constructor`
+                this.filteredProducts = this.products;
+            },
+            error => this.errorMessage = <any>error); // `<any>` casting operator: cast the error returned to the any data type 
     }
 }
