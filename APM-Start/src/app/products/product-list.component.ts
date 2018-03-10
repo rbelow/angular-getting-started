@@ -5,7 +5,6 @@ import { ProductService } from "./product.service";
 // technology is a medium, not the end
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
