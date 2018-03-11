@@ -44,7 +44,9 @@
                                 [title]="product.productName | uppercase"
                                 [style.width.px]="imageWidth">
                         </td>
-                        <td>{{ product.productName }}</td>
+                        <td><a [routerLink]="['/products', product.productId]">
+                            {{ product.productName }}
+                        </a></td>
                         <td>{{ product.productCode | lowercase | convertToSpaces: "-" }}</td>
                         <td>{{ product.releaseDate }}</td>
                         <!-- are currency filters safe? -->
