@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ProductService } from "./products/product.service";
+// import { ProductService } from "./products/product.service";
 
 @Component({
   selector: 'pm-root',
@@ -18,9 +18,10 @@ import { ProductService } from "./products/product.service";
         <router-outlet></router-outlet>
       </div>
     </div>
-    `,
+    `
+    // ,
     // register `ProductService` in the root to make it available to **all** components
-    providers:[ ProductService ]
+    // providers:[ ProductService ]
 })
 export class AppComponent {
   pageTitle: string = 'Acme Product Management';
